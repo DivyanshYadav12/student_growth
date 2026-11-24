@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <div className="mx-auto max-w-xl py-24 text-center"><div className="text-sm font-semibold text-indigo-400">404 · Page not found</div><h1 className="mt-3 text-3xl font-bold">This page is still being built.</h1><p className="mt-3 text-muted-foreground">The page is part of the product roadmap and will be available as development continues.</p><Link href="/" className="mt-6 inline-block rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white">Back to dashboard</Link></div>}

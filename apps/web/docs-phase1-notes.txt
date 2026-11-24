@@ -1,0 +1,12 @@
+Phase 1 deliverable:
+- Design tokens in utility classes, light visual direction.
+- Reusable Button, Card (header/content), Badge components.
+- Responsive shell: fixed desktop sidebar, mobile overlay navigation, sticky header.
+- Dashboard with summary metrics, today's plan, suggested next lesson, course cards, weekly activity, achievements.
+
+Next tasks:
+1. npm install and run locally, verify compilation.
+2. Install shadcn/ui CLI and replace prototype primitives with generated accessible components.
+3. Implement Dialog/Input/Tabs/Dropdown/Tooltip.
+4. Refine the dashboard data model, loading/error/empty states.
+5. Add Academics subject detail and Skill Quest path screens.

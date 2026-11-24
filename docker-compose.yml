@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: student-growth-db
+    environment:
+      POSTGRES_USER: sg
+      POSTGRES_PASSWORD: sg
+      POSTGRES_DB: student_growth
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sg -d student_growth"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: student-growth-api
+    env_file:
+      - .env
+    environment:
+      SG_DATABASE_URL: postgresql+asyncpg://sg:sg@db:5432/student_growth
+      SG_ENVIRONMENT: development
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles: ["docker"]
+
+volumes:
+  pgdata:
